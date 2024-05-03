@@ -1,0 +1,29 @@
+package _6LR.taskNumSix;
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        double[] dol = new double[N];
+        double[] euro = new double[N];
+        for (int i = 0; i < N; i++) {
+            dol[i] = scanner.nextDouble();
+            euro[i] = scanner.nextDouble();
+        }
+        System.out.printf("%.2f", getMaxStonks(N, dol, euro));
+    }
+
+    public static double getMaxStonks(int N, double[] dol, double[] euro){
+        double[][] money = new double[N][3];
+        money[0][0] = 100;
+        money[0][1] = money[0][0]/dol[0];
+        money[0][2] = money[0][0]/euro[0];
+        for (int i = 1; i < N; i++) {
+            money[i][0] = Math.max(Math.max(money[i-1][1]*dol[i], money[i-1][2]*euro[i]), money[i-1][0]);
+            money[i][1] = Math.max(Math.max(money[i][0]/dol[i], money[i-1][0]/dol[i]), money[i-1][1]);
+            money[i][2] = Math.max(Math.max(money[i][0]/euro[i], money[i-1][0]/euro[i]), money[i-1][2]);
+        }
+        return money[N-1][0];
+    }
+}

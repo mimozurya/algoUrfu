@@ -10,7 +10,8 @@ public class Solution {
         String input = scanner.nextLine();
         System.out.println(findMaxWeightOfSubStrings(input));
     }
-    private static int findMaxWeightOfSubStrings(String line) {
+
+    public static int findMaxWeightOfSubStrings(String line) {
         Map<String, Integer> weights = new HashMap<>();
         int maxWeight = Integer.MIN_VALUE;
 
