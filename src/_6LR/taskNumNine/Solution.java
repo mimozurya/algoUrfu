@@ -8,6 +8,7 @@ public class Solution {
         String strVoid = scanner.nextLine();
         int n = Integer.parseInt(strVoid.split(" ")[0]);
         int k = Integer.parseInt(strVoid.split(" ")[1]);
+        // n - кол-во цифр, k - кол-во черных полос
         findNumbers(k, n);
     }
     private static void findNumbers(int k, int n) {
@@ -16,6 +17,7 @@ public class Solution {
             return;
         }
         int[] blackSegments = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+        // кол-во черных полос для каждой цифры
         int copyK = k;
         StringBuilder minNumber = new StringBuilder();
         for (int i = 0; i < n; i++) {

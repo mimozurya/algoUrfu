@@ -31,6 +31,7 @@ public class Solution {
 
     public static boolean isPrime(int num) {
         boolean prime = num > 1 && (num % 2 != 0 || num == 2) && (num % 3 != 0 || num == 3);
+        // сначала проверяет на числа 2 и 3, а затем применяет формулу 6k +- 1
         int i = 5;
         int d = 2;
 
